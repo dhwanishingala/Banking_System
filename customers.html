@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <title>TSP Banking System</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSP Banking System</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+
+    <!-- -----Navbar------ -->
+    <div>
+        <nav class="navbar navbar-expand-lg btnclr sticky-top navbar-dark bg-dark navbar-right">
+            <a class="navbar-brand" href="index.html">TSF Banking System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ml-auto mr-3">
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link" href="customers.html">Customers</a>
+                    </li>
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link active" href="" data-toggle="modal" data-target="#sendMoney">Transfer
+                            Money</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="" data-toggle="modal"
+                            data-target="#transactionHistory">Transaction History</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- -----Customers-------- -->
+    <div class="container my-5">
+        <div class="card text-center">
+            <div class="card-body image">
+                <h2>Hello Dhwani!!!.....Welcome Back!!</h2>
+                <h4>Account balance: $<span id="myAccountBalance">5000</span></h4>
+            </div>
+        </div>
+    </div>
+
+    <!--------Model transfer Money---------->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content image">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <!-- <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@email.com</span>
+                        </div> -->
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text btnclr">$</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                                aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                                <span class="input-group-text btnclr">.00</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btnclr" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="sendMoney()" class="btn btn-success btnclr" data-dismiss="modal">Send
+                        Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal transaction History-->
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header image">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body image">
+                    <ol id="transaction-history-body">
+                    </ol>
+                </div>
+                <div class="modal-footer image">
+                    <button type="button" class="btn  btnclr" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --------Tables-------- -->
+    <div class="container image">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Serial No </th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Balance</th>
+                    <!-- <th>Account Type</th> -->
+                    <!-- <th scope="col">Last Activity</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Hetavi</td>
+                    <td>hetavi23</td>
+                    <td id="hetavibalance">3000</td>
+                    <!-- <td>Savings </td> -->
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>jacob5</td>
+                    <td id="jacobbalance">5000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry </td>
+                    <td>larry55</td>
+                    <td id="larrybalance">2000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Mihir </td>
+                    <td>mihir19</td>
+                    <td id="mihirbalance">1000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Bhavna </td>
+                    <td>bhavna24</td>
+                    <td id="bhavnabalance">12000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Bipin </td>
+                    <td>bipin23</td>
+                    <td id="bipinbalance">120000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Sakshi </td>
+                    <td>sakshi23</td>
+                    <td id="sakshibalance">12000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Vrushti </td>
+                    <td>vrush27</td>
+                    <td id="vrushtibalance">32000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>Shashwat </td>
+                    <td>shashwat14</td>
+                    <td id="shashwatbalance">120000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td>mansi</td>
+                    <td>mansi18</td>
+                    <td id="mansibalance">12000</td>
+                    <!-- <td>Savings </td> -->
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ------buttons------ -->
+        <div class="text-center my-5">
+
+            <button class="btn btn-info mr-5 mb-5 btnclr" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+            <a class="btn btn-info btnclr mb-5" href="" data-toggle="modal" data-target="#transactionHistory">See
+                Transaction History</a>
+        </div>
+
+    </div>
+
+    <script src="./javascript/app.js"></script>
+</body>
+
+</html>

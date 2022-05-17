@@ -1,0 +1,21 @@
+
+.title{
+    margin-top: 5rem;
+    margin-left: 6rem;
+    margin-top: 6rem;
+    font-size: 3.5rem;
+    
+}
+
+.image{
+   
+    background-color: beige !important;
+    
+}
+
+.btnclr{
+    /* color: darkslategray !important; */
+    /* text-decoration: whitesmoke !important; */
+    color: white !important;
+    background-color: darkslategrey !important;
+}
